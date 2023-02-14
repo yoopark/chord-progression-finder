@@ -556,10 +556,10 @@ chokidar@^3.5.3:
   optionalDependencies:
     fsevents "~2.3.2"
 
-chord-symbol@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/chord-symbol/-/chord-symbol-3.0.0.tgz#d16c4871f70fdaa5c1c13d837c865e0474e959db"
-  integrity sha512-mONjRMrU1RFm/LWSN8Np4lq52mM6sqbB3JI7WMEDb15ZOqcUAMB2ttdzEfJDa6QQJPol+gZrMA4P0mJK8uiq7w==
+chord-symbol@^4.0.0-beta.5:
+  version "4.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/chord-symbol/-/chord-symbol-4.0.0-beta.5.tgz#11804106f5fd829cda31add4e14d83347be1e7ba"
+  integrity sha512-gNNKezfiZOOVM87BOtl6yqgi6Zx+RtxvKOMcBwnqJXM+N1G9eILBqDlTdLo0xetYYmwFZTXHgtxE7nWBC8CH4w==
   dependencies:
     lodash "^4.17.21"
 
