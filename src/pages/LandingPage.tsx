@@ -1,4 +1,6 @@
 import { SheetInput } from '@/components/SheetInput';
+import { SunIconSvg } from '@/components/SunIconSvg';
+import { ToggleSwitch } from '@/components/ToggleSwitch';
 import { setTheme } from '@/utils/setTheme';
 import { useEffect, useState } from 'react';
 
@@ -15,14 +17,19 @@ export const LandingPage = () => {
 
   return (
     <div className="pt-10">
-      <h1 className="text-5xl font-extrabold leading-tight">
-        Chord
-        <br />
-        Progression
-        <br />
-        Finder
-      </h1>
-      <input type="checkbox" checked={isDarkMode} onChange={toggleIsDarkMode} />
+      <div className="flex justify-between">
+        <h1 className="text-5xl font-extrabold leading-tight">
+          Chord
+          <br />
+          Progression
+          <br />
+          Finder
+        </h1>
+        <div className="float-right flex items-center">
+          <SunIconSvg fill={isDarkMode ? 'white' : 'black'} />
+          <ToggleSwitch checked={isDarkMode} onChange={toggleIsDarkMode} />
+        </div>
+      </div>
       <SheetInput />
     </div>
   );

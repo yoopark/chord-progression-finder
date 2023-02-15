@@ -13,3 +13,7 @@ https://medium.com/sjk5766/react-%EB%B0%B0%EC%97%B4%EC%9D%98-index%EB%A5%BC-key%
 https://spicycookie.me/React/managedata/
 
 배열을 다루지 말고 그걸 또 컴포넌트로 쪼개라.
+
+https://medium.com/front-end-weekly/build-a-css-only-toggle-switch-using-tailwindcss-d2739882934
+
+switch UI 만드는 법
