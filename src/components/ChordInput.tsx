@@ -15,7 +15,7 @@ const getBgByStatus = (status: ChordInputStatus): string => {
     case 'invalid':
       return 'bg-red';
     case 'none':
-      return 'bg-spacegray';
+      return 'bg-silver dark:bg-spacegray';
     default:
       throw new Error('Invalid status');
   }
