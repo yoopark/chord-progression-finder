@@ -6,6 +6,15 @@ export class Phrase {
 
   constructor(size?: MeasureSize, measures?: Measure[]) {
     this._size = size ?? 4;
+    if (measures) {
+      if (measures.length > this._size) {
+        measures = measures.splice(this._size);
+      } else if (measures.length < this._size) {
+        measures = measures.concat(
+          Array.from({ length: this._size - measures.length }, () => new Measure())
+        );
+      }
+    }
     this._measures = measures ?? Array.from({ length: this._size }, () => new Measure());
   }
 
