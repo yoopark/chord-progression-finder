@@ -6,7 +6,7 @@ type MainLayoutProps = {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="h-screen px-[10%] bg-white text-black dark:bg-black dark:text-white">
+    <div className="h-screen px-[10%] bg-white text-black dark:bg-black dark:text-white duration-300 ease-in-out">
       {children}
     </div>
   );

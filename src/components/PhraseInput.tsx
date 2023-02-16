@@ -28,7 +28,7 @@ export const PhraseInput = ({
   useEffect(() => onChange(phrase), [phrase]);
 
   return (
-    <div className={`flex justify-between ${className}`}>
+    <div className={`flex justify-between items-center ${className}`}>
       {[...Array(phrase.size)].map((_, idx: number) => (
         <MeasureInput
           key={idx}

@@ -42,7 +42,7 @@ export const MeasureInput = ({
           />
         ))}
       </div>
-      <div className="w-3 h-10 bg-indigo dark:bg-yellow"></div>
+      <div className="w-1 h-10 bg-indigo rounded dark:bg-yellow"></div>
     </>
   );
 };
