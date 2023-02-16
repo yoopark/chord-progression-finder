@@ -6,16 +6,17 @@ export class Phrase {
 
   constructor(size?: MeasureSize, measures?: Measure[]) {
     this._size = size ?? 4;
+    const realSize: number = this._size + 1;
     if (measures) {
-      if (measures.length > this._size) {
-        measures = measures.slice(0, this._size);
-      } else if (measures.length < this._size) {
+      if (measures.length > realSize) {
+        measures = measures.slice(0, realSize);
+      } else if (measures.length < realSize) {
         measures = measures.concat(
-          Array.from({ length: this._size - measures.length }, () => new Measure())
+          Array.from({ length: realSize - measures.length }, () => new Measure())
         );
       }
     }
-    this._measures = measures ?? Array.from({ length: this._size }, () => new Measure());
+    this._measures = measures ?? Array.from({ length: this._size + 1 }, () => new Measure());
   }
 
   get size(): MeasureSize {
