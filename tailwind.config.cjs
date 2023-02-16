@@ -13,7 +13,11 @@ module.exports = {
       black: '#0C0D10',
       silver: '#dae2f2',
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        'white-md': '0 4px 6px -1px rgb(255 255 255 / 0.1), 0 2px 4px -2px rgb(255 255 255 / 0.1)',
+      },
+    },
   },
   plugins: [],
 };

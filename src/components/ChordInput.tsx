@@ -24,7 +24,7 @@ const getBgByStatus = (status: ChordInputStatus): string => {
 export const ChordInput = ({ status, className = '', onChange }: ChordInputProps) => {
   return (
     <input
-      className={`w-12 h-12 rounded-md text-center focus:outline-none focus:caret-transparent ${getBgByStatus(
+      className={`w-12 h-12 rounded-md text-center shadow-lg dark:shadow-white-md focus:outline-none focus:caret-transparent ${getBgByStatus(
         status
       )} ${className}`}
       onChange={onChange}
