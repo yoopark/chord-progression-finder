@@ -1,10 +1,10 @@
 import { Phrase } from '@/types/Phrase';
 import { Sheet } from '@/types/Sheet';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { ChordInputStatus } from './ChordInput';
+import { CircleRadio } from './CircleRadio';
 import { KeyInput } from './KeyInput';
 import { PhraseInput } from './PhraseInput';
-import { RadioInput } from './RadioInput';
 
 export const SheetInput = () => {
   const [sheet, setSheet] = useState<Sheet>(new Sheet());
@@ -21,6 +21,16 @@ export const SheetInput = () => {
     setKeyInputStatus(newSheet.isValidKey ? 'valid' : 'invalid');
   };
 
+  const onChangeMeasure = (e: ChangeEvent<HTMLInputElement>) => {
+    const size: number = parseInt(e.target.value);
+    if (!(size === 4 || size === 8 || size === 16)) {
+      throw new Error('Invalid measure size');
+    }
+    const newPhrase: Phrase = new Phrase(size); // TODO: 기존 있던거 윗 부분은 이어주는게 맞음
+    const newSheet: Sheet = new Sheet(sheet.key, newPhrase);
+    setSheet(newSheet);
+  };
+
   const onChangePhrase = (phrase: Phrase) => setSheet((sheet) => new Sheet(sheet.key, phrase));
 
   return (
@@ -30,13 +40,33 @@ export const SheetInput = () => {
           <label className="text-lg font-light">Key</label>
           <KeyInput status={keyInputStatus} onChange={onChangeKey} className="ml-4" />
         </div>
-        <div className="flex justify-between space-x-3">
-          <RadioInput label="4" id="measures-4" name="measure-size" value="measures-4" required />
-          <RadioInput label="8" id="measures-8" name="measure-size" value="measures-8" />
-          <RadioInput label="16" id="measures-16" name="measure-size" value="measures-16" />
-        </div>
+        <fieldset className="flex justify-between space-x-3">
+          <CircleRadio
+            name="measure-size"
+            value="4"
+            id="measure-4"
+            label="4"
+            onChange={onChangeMeasure}
+            defaultChecked
+          />
+          <CircleRadio
+            name="measure-size"
+            value="8"
+            id="measure-8"
+            label="8"
+            onChange={onChangeMeasure}
+          />
+          <CircleRadio
+            name="measure-size"
+            value="16"
+            id="measure-16"
+            label="16"
+            onChange={onChangeMeasure}
+          />
+        </fieldset>
       </div>
       <PhraseInput
+        phrase={sheet.phrase}
         onChange={onChangePhrase}
         className="mt-10"
         parseChord={sheet.parseChord}

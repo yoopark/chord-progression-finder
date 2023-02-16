@@ -29,7 +29,7 @@ export const MeasureInput = ({
 
   useEffect(() => onChange(measure, idx), [measure]);
   return (
-    <>
+    <div className="flex w-1/4">
       <div className="flex w-full justify-evenly">
         {[...Array(Measure.BEATS_PER_MEASURE)].map((_, idx: number) => (
           <BeatInput
@@ -42,7 +42,7 @@ export const MeasureInput = ({
           />
         ))}
       </div>
-      <div className="w-1 h-10 bg-indigo rounded dark:bg-yellow"></div>
-    </>
+      <div className="w-0.5 h-10 bg-indigo rounded dark:bg-yellow"></div>
+    </div>
   );
 };
