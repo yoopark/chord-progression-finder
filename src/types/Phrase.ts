@@ -8,7 +8,7 @@ export class Phrase {
     this._size = size ?? 4;
     if (measures) {
       if (measures.length > this._size) {
-        measures = measures.splice(this._size);
+        measures = measures.slice(0, this._size);
       } else if (measures.length < this._size) {
         measures = measures.concat(
           Array.from({ length: this._size - measures.length }, () => new Measure())

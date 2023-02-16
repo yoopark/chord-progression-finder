@@ -1,6 +1,6 @@
 import { Phrase } from '@/types/Phrase';
 import { Sheet } from '@/types/Sheet';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { ChordInputStatus } from './ChordInput';
 import { CircleRadio } from './CircleRadio';
 import { KeyInput } from './KeyInput';
