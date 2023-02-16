@@ -27,8 +27,8 @@ export const MeasureInput = ({
   };
 
   return (
-    <div className="flex w-1/4">
-      <div className="flex w-full justify-evenly">
+    <div className={`flex w-1/4 items-center ${className}`}>
+      <div className="flex w-full items-center justify-evenly">
         {measure.beats.map((_: Beat, idx: number) => (
           <BeatInput
             key={idx}
@@ -36,7 +36,6 @@ export const MeasureInput = ({
             onChange={onChangeBeat}
             parseChord={parseChord}
             renderChord={renderChord}
-            className={className}
           />
         ))}
       </div>

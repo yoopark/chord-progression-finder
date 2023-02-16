@@ -34,7 +34,7 @@ export const PhraseInput = ({
           onChange={onChangeMeasure}
           parseChord={parseChord}
           renderChord={renderChord}
-          className="width-1/4 mb-10"
+          className="mb-10"
         />
       ))}
     </div>
