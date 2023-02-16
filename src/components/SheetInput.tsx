@@ -1,6 +1,6 @@
 import { Phrase } from '@/types/Phrase';
 import { Sheet } from '@/types/Sheet';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { ChordInputStatus } from './ChordInput';
 import { CircleRadio } from './CircleRadio';
 import { KeyInput } from './KeyInput';
@@ -21,12 +21,12 @@ export const SheetInput = () => {
     setKeyInputStatus(newSheet.isValidKey ? 'valid' : 'invalid');
   };
 
-  const onChangeMeasure = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChangeMeasureSize = (e: ChangeEvent<HTMLInputElement>) => {
     const size: number = parseInt(e.target.value);
     if (!(size === 4 || size === 8 || size === 16)) {
       throw new Error('Invalid measure size');
     }
-    const newPhrase: Phrase = new Phrase(size); // TODO: 기존 있던거 윗 부분은 이어주는게 맞음
+    const newPhrase: Phrase = new Phrase(size, sheet.phrase.measures); // TODO: 기존 있던거 윗 부분은 이어주는게 맞음
     const newSheet: Sheet = new Sheet(sheet.key, newPhrase);
     setSheet(newSheet);
   };
@@ -46,7 +46,7 @@ export const SheetInput = () => {
             value="4"
             id="measure-4"
             label="4"
-            onChange={onChangeMeasure}
+            onChange={onChangeMeasureSize}
             defaultChecked
           />
           <CircleRadio
@@ -54,14 +54,14 @@ export const SheetInput = () => {
             value="8"
             id="measure-8"
             label="8"
-            onChange={onChangeMeasure}
+            onChange={onChangeMeasureSize}
           />
           <CircleRadio
             name="measure-size"
             value="16"
             id="measure-16"
             label="16"
-            onChange={onChangeMeasure}
+            onChange={onChangeMeasureSize}
           />
         </fieldset>
       </div>

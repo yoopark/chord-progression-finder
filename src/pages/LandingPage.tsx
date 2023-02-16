@@ -18,7 +18,7 @@ export const LandingPage = () => {
   return (
     <div className="pt-10">
       <div className="flex justify-between">
-        <h1 className="text-5xl font-extrabold leading-tight">
+        <h1 className="text-4xl font-extrabold">
           Chord
           <br />
           Progression

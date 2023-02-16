@@ -1,10 +1,10 @@
 import { Beat } from '@/types/Beat';
 import { Measure } from '@/types/Measure';
 import { Chord, MaybeChord } from 'chord-symbol';
-import { useEffect, useState } from 'react';
 import { BeatInput } from './BeatInput';
 
 type MeasureInputProps = {
+  measure: Measure;
   idx: number;
   onChange: (measure: Measure, idx: number) => void;
   parseChord: (input: string) => MaybeChord;
@@ -13,25 +13,23 @@ type MeasureInputProps = {
 };
 
 export const MeasureInput = ({
+  measure,
   idx,
   onChange,
   parseChord,
   renderChord,
   className = '',
 }: MeasureInputProps) => {
-  const [measure, setMeasure] = useState<Measure>(new Measure());
-
-  const onChangeBeat = (beat: Beat, idx: number) => {
+  const onChangeBeat = (beat: Beat, beatIdx: number) => {
     const beats: Beat[] = [...measure.beats];
-    beats[idx] = beat;
-    setMeasure(() => new Measure(beats));
+    beats[beatIdx] = beat;
+    onChange(new Measure(beats), idx);
   };
 
-  useEffect(() => onChange(measure, idx), [measure]);
   return (
     <div className="flex w-1/4">
       <div className="flex w-full justify-evenly">
-        {[...Array(Measure.BEATS_PER_MEASURE)].map((_, idx: number) => (
+        {measure.beats.map((_: Beat, idx: number) => (
           <BeatInput
             key={idx}
             idx={idx}
