@@ -4,6 +4,7 @@ import { ChangeEvent, useState } from 'react';
 import { ChordInput, ChordInputStatus } from './ChordInput';
 
 type BeatInputProps = {
+  beat: Beat;
   idx: number;
   onChange: (beat: Beat, idx: number) => void;
   parseChord: (input: string) => MaybeChord;
@@ -12,6 +13,7 @@ type BeatInputProps = {
 };
 
 export const BeatInput = ({
+  beat,
   idx,
   onChange,
   parseChord,
@@ -33,8 +35,13 @@ export const BeatInput = ({
       return;
     }
     setStatus('valid');
-    onChange(new Beat(chord, renderChord(chord)), idx);
+    onChange(new Beat(chord), idx);
   };
 
-  return <ChordInput status={status} onChange={onChangeChord} className={className} />;
+  return (
+    <div className="flex flex-col items-center">
+      <ChordInput status={status} onChange={onChangeChord} className={className} />
+      <div className="w-12 h-12 flex items-center justify-center">{beat.numeralChordStr}</div>
+    </div>
+  );
 };

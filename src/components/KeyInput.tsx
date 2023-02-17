@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent } from 'react';
 import { ChordInput, ChordInputStatus } from './ChordInput';
 
 export type KeyInputProps = {
@@ -8,16 +8,10 @@ export type KeyInputProps = {
 };
 
 export const KeyInput = ({ onChange, status, className = '' }: KeyInputProps) => {
-  const [key, setKey] = useState<string>('');
-
   const onChangeKey = (e: ChangeEvent<HTMLInputElement>) => {
     const input: string = e.target.value;
-    setKey(input);
+    onChange(input);
   };
-
-  useEffect(() => {
-    onChange(key);
-  }, [key]);
 
   return <ChordInput onChange={onChangeKey} status={status} className={className} />;
 };

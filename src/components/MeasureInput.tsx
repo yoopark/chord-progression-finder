@@ -27,11 +27,12 @@ export const MeasureInput = ({
   };
 
   return (
-    <div className={`flex w-1/4 items-center ${className}`}>
+    <div className={`flex w-1/4 ${className}`}>
       <div className="flex w-full items-center justify-evenly">
-        {measure.beats.map((_: Beat, idx: number) => (
+        {measure.beats.map((beat: Beat, idx: number) => (
           <BeatInput
             key={idx}
+            beat={beat}
             idx={idx}
             onChange={onChangeBeat}
             parseChord={parseChord}
@@ -39,7 +40,9 @@ export const MeasureInput = ({
           />
         ))}
       </div>
-      <div className="w-0.5 h-10 bg-indigo rounded dark:bg-yellow"></div>
+      <div className="w-0.5 h-10 bg-indigo rounded dark:bg-yellow mt-1.5"></div>
     </div>
   );
 };
+
+// TODO: Bar 가운데 정렬하면 BeatInput(ChordInput + RelativeChord) 다 친 상태에서 가운데 정렬해버림. mt-1.5는 임시방편

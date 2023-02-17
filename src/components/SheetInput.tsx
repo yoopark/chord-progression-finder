@@ -10,6 +10,7 @@ export const SheetInput = () => {
   const [sheet, setSheet] = useState<Sheet>(new Sheet());
   const [keyInputStatus, setKeyInputStatus] = useState<ChordInputStatus>('none');
 
+  // FIXME: 입력 도중 key 바꾸면 Chord들 다 초기화해야 함.
   const onChangeKey = (key: string) => {
     if (key === '') {
       setKeyInputStatus('none');
@@ -26,7 +27,7 @@ export const SheetInput = () => {
     if (!(size === 4 || size === 8 || size === 16)) {
       throw new Error('Invalid measure size');
     }
-    const newPhrase: Phrase = new Phrase(size, sheet.phrase.measures); // TODO: 기존 있던거 윗 부분은 이어주는게 맞음
+    const newPhrase: Phrase = new Phrase(size, sheet.phrase.measures);
     const newSheet: Sheet = new Sheet(sheet.key, newPhrase);
     setSheet(newSheet);
   };
