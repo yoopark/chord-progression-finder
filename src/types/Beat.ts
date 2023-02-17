@@ -2,17 +2,17 @@ import { Chord } from 'chord-symbol';
 
 export class Beat {
   private _chord?: Chord;
-  private _relativeChordStr: string;
+  private _numeralChordStr: string;
 
-  constructor(chord?: Chord, relativeChordStr?: string) {
+  constructor(chord?: Chord) {
     this._chord = chord;
-    this._relativeChordStr = relativeChordStr ?? '';
+    this._numeralChordStr = chord?.numeral.symbol ?? '';
   }
   get chord(): Chord | undefined {
     return this._chord;
   }
-  get relativeChordStr(): string {
-    return this._relativeChordStr;
+  get numeralChordStr(): string {
+    return this._numeralChordStr;
   }
   set chord(chord: Chord | undefined) {
     if (chord === null) {
@@ -20,7 +20,7 @@ export class Beat {
     }
     this._chord = chord;
   }
-  set relativeChordStr(relativeChordStr: string) {
-    this._relativeChordStr = relativeChordStr;
+  set numeralChordStr(numeralChordStr: string) {
+    this._numeralChordStr = numeralChordStr;
   }
 }
