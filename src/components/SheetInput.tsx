@@ -14,7 +14,7 @@ export const SheetInput = () => {
   const onChangeKey = (key: string) => {
     if (key === '') {
       setKeyInputStatus('none');
-      setSheet(new Sheet());
+      setSheet(new Sheet(undefined, sheet.phrase));
       return;
     }
     const newSheet: Sheet = new Sheet(key, sheet.phrase);
