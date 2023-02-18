@@ -17,3 +17,7 @@ https://spicycookie.me/React/managedata/
 https://medium.com/front-end-weekly/build-a-css-only-toggle-switch-using-tailwindcss-d2739882934
 
 switch UI 만드는 법
+
+https://23life.tistory.com/151
+
+patch-package 사용하기

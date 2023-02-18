@@ -1,0 +1,15 @@
+diff --git a/node_modules/chord-symbol/src/parser/filters/formatNumeralSymbol.js b/node_modules/chord-symbol/src/parser/filters/formatNumeralSymbol.js
+index 5c197f4..b162be3 100644
+--- a/node_modules/chord-symbol/src/parser/filters/formatNumeralSymbol.js
++++ b/node_modules/chord-symbol/src/parser/filters/formatNumeralSymbol.js
+@@ -111,8 +111,8 @@ export default function formatNumeralSymbol(key = '', chord) {
+ 		type = 'borrowed';
+ 	} else {
+ 		type = 'unknown';
+-		degree = '?';
+-		symbol = `${degree}${descriptor}`;
++		// degree = '?';
++		// symbol = `${degree}${descriptor}`;
+ 	}
+ 
+ 	symbol += inversion;
