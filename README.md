@@ -8,7 +8,9 @@
 
 ## 🛠️ Development Stack
 
-<table border="1" align="center">
+- Special thanks to [no-chris/chord-symbol](https://github.com/no-chris/chord-symbol) v4.0.0
+
+<table border="1">
   <th align="center">기술스택</th>
   <th align="center">선정이유</th>
   <tr>
@@ -32,8 +34,6 @@
     <td>NPM 상위호환 (패키지 매니징)</td>
   </tr>
 </table>
-
-- [no-chris/chord-symbol](https://github.com/no-chris/chord-symbol) v4.0.0
 
 ## 🕑 Project Timeline
 
