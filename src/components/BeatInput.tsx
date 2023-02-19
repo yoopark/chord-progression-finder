@@ -40,7 +40,7 @@ export const BeatInput = ({
 
   return (
     <div className="flex flex-col items-center">
-      <ChordInput status={status} onChange={onChangeChord} className={className} />
+      <ChordInput status={status} onChange={onChangeChord} placeholder="/" className={className} />
       <div className="w-12 h-12 flex items-center justify-center">{beat.numeralChordStr}</div>
     </div>
   );

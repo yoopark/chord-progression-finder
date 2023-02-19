@@ -4,6 +4,7 @@ export type ChordInputStatus = 'valid' | 'invalid' | 'none';
 
 type ChordInputProps = {
   status: ChordInputStatus;
+  placeholder?: string;
   className?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
@@ -21,12 +22,18 @@ const getBgByStatus = (status: ChordInputStatus): string => {
   }
 };
 
-export const ChordInput = ({ status, className = '', onChange }: ChordInputProps) => {
+export const ChordInput = ({
+  status,
+  placeholder = '',
+  className = '',
+  onChange,
+}: ChordInputProps) => {
   return (
     <input
       className={`w-12 h-12 rounded-md text-center text-white shadow-lg dark:shadow-white-md focus:outline-none focus:caret-transparent duration-300 ease-in-out ${getBgByStatus(
         status
       )} ${className}`}
+      placeholder={placeholder}
       onChange={onChange}
     />
   );
